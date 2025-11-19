@@ -91,12 +91,12 @@ namespace RealtorFirm.BLL.Services
                              c.LastName.ToLower().Contains(lowerKeyword));
         }
 
-        public IEnumerable<Client> AdvancedSearchClients(string lastName, string bankAccount)
-        {
-            return _clientRepo.GetAll()
-                .Where(c => c.LastName == lastName &&
-                             c.BankAccountNumber == bankAccount);
-        }
+        public IEnumerable<Client> AdvancedSearchClients(string lastName, RealEstateType desiredType)
+{
+    return _clientRepo.GetAll()
+        .Where(c => c.LastName.Equals(lastName, StringComparison.OrdinalIgnoreCase) &&
+                    c.Offers.Any(offer => offer.Type == desiredType));
+}
 
         public void UpdateClient(Client client)
         {
