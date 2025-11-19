@@ -16,6 +16,6 @@ namespace RealtorFirm.BLL.Interfaces
         IEnumerable<Client> GetAllClients();
         IEnumerable<Client> GetSortedClients(string sortBy);
         IEnumerable<Client> SearchClients(string keyword);
-        IEnumerable<Client> AdvancedSearchClients(string lastName, string bankAccount);
+        IEnumerable<Client> AdvancedSearchClients(string lastName, RealEstateType desiredType);
     }
 }
